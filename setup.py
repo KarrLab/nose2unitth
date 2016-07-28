@@ -1,0 +1,38 @@
+from setuptools import setup, Command
+import os
+
+
+class CleanCommand(Command):
+    """Custom clean command to tidy up the project root."""
+    user_options = []
+
+    def initialize_options(self):
+        pass
+
+    def finalize_options(self):
+        pass
+
+    def run(self):
+        os.system('rm -vrf ./build ./dist ./*.pyc ./*.tgz ./*.egg-info')
+
+
+setup(
+    name="nose2unitth",
+    version="0.0.1",
+    description="Convert nose-style test reports to UnitTH-style test reports",
+    long_description="Convert nose-style test reports to UnitTH-style test reports",
+    url="https://github.com/KarrLab/nose2unitth",
+    author="Jonathan Karr",
+    author_email="jonrkarr@gmail.com",
+    license="MIT",
+    keywords='nose unitth xunit junit',
+    packages=["nose2unitth"],
+    entry_points={
+        'console_scripts': [
+            'nose2unitth = nose2unitth.__main__:main',
+        ],
+    },
+    cmdclass={
+        'clean': CleanCommand,
+    },
+)

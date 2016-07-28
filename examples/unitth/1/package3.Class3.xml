@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testsuite errors="1" failures="1" name="package3.Class3" skipped="1" tests="3" time="0.006">
+  <testcase classname="package3.Class3" name="test_error1" time="0.001">
+    <error message="test error" type="exceptions.Exception">
+<![CDATA[Traceback ...]]>    </error>
+  </testcase>
+  <testcase classname="package3.Class3" name="test_failure1" time="0.002">
+    <failure message="True is not false" type="exceptions.AssertionError">
+<![CDATA[Traceback ...]]>    </failure>
+  </testcase>
+  <testcase classname="package3.Class3" name="test_skip1" time="0.003">
+    <skipped message="test skip" type="unittest.case.SkipTest">
+<![CDATA[SkipTest: ...]]>    </skipped>
+  </testcase>
+</testsuite>
