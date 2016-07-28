@@ -1,5 +1,2 @@
-# example files
-recursive-include examples *
-
 # license
 include LICENSE.txt
