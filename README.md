@@ -8,9 +8,7 @@ Convert [nose](http://nose.readthedocs.io)-style XML test reports to [UnitTH](ht
 
 ## Installation
 ```
-git clone https://github.com/KarrLab/nose2unitth.git
-sudo python setup.py install
-sudo python setup.py clean
+pip install nose2unitth
 ```
 
 ## Usage
@@ -35,7 +33,7 @@ java \
 ```
 
 ## License
-The example model is released under the [MIT license](LICENSE).
+The example model is released under the [MIT license](LICENSE.txt).
 
 ## Development team
 `nose2unitth` was developed by [Jonathan Karr](http://www.karrlab.org) at the Icahn School of Medicine at Mount Sinai in New York, USA.

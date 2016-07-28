@@ -1,2 +1,5 @@
 # compiled files
 *.pyc
+
+# rst-formatted README
+README.rst
