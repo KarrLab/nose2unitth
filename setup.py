@@ -15,13 +15,14 @@ class CleanCommand(Command):
     def run(self):
         os.system('rm -vrf ./build ./dist ./*.pyc ./*.tgz ./*.egg-info')
 
+version = '0.0.3'
 
 setup(
     name="nose2unitth",
-    version="0.0.1",
+    version=version,
     description="Convert nose-style test reports to UnitTH-style test reports",
     url="https://github.com/KarrLab/nose2unitth",
-    download_url='https://github.com/KarrLab/nose2unitth/tarball/0.0.1',
+    download_url='https://github.com/KarrLab/nose2unitth/tarball/%s' % version,
     author="Jonathan Karr",
     author_email="jonrkarr@gmail.com",
     license="MIT",
