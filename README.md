@@ -4,7 +4,7 @@ Convert [nose](http://nose.readthedocs.io)-style XML test reports to [UnitTH](ht
 ## Example
 * [nose-style XML report](examples/nose.xml)
 * [UnitTH-style XML report](examples/unitth/1)
-* [UnitTH HTML test history report](examples/html)
+* [UnitTH HTML test history report](https://cdn.rawgit.com/KarrLab/nose2unitth/master/examples/html/index.html)
 
 ## Installation
 ```
