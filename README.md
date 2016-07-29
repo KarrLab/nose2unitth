@@ -32,6 +32,9 @@ java \
     -jar unitth.jar examples/unitth/*
 ```
 
+## Documentation
+Please see the documentation at [Read the Docs](http://nose2unitth.readthedocs.io).
+
 ## License
 The example model is released under the [MIT license](LICENSE.txt).
 

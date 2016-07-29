@@ -15,7 +15,7 @@ class CleanCommand(Command):
     def run(self):
         os.system('rm -vrf ./build ./dist ./*.pyc ./*.tgz ./*.egg-info')
 
-version = '0.0.3'
+version = '0.0.4'
 
 setup(
     name="nose2unitth",
