@@ -6,6 +6,7 @@
 :License: MIT
 """
 
+from __future__ import unicode_literals
 from xml.dom import minidom
 import os
 
@@ -51,7 +52,7 @@ class Converter(object):
                 case['skipped'] = {
                     'type': skipped_xml[0].getAttribute('type'),
                     'message': skipped_xml[0].getAttribute('message'),
-                    'text': "".join([child.nodeValue.strip() for child in skipped_xml[0].childNodes]),
+                    'text': "".join([child.nodeValue for child in skipped_xml[0].childNodes]),
                 }
 
             failure_xml = case_xml.getElementsByTagName('failure')
@@ -59,7 +60,7 @@ class Converter(object):
                 case['failure'] = {
                     'type': failure_xml[0].getAttribute('type'),
                     'message': failure_xml[0].getAttribute('message'),
-                    'text': "".join([child.nodeValue.strip() for child in failure_xml[0].childNodes]),
+                    'text': "".join([child.nodeValue for child in failure_xml[0].childNodes]),
                 }
 
             error_xml = case_xml.getElementsByTagName('error')
@@ -67,7 +68,7 @@ class Converter(object):
                 case['error'] = {
                     'type': error_xml[0].getAttribute('type'),
                     'message': error_xml[0].getAttribute('message'),
-                    'text': "".join([child.nodeValue.strip() for child in error_xml[0].childNodes]),
+                    'text': "".join([child.nodeValue for child in error_xml[0].childNodes]),
                 }
 
             suites[classname].append(case)
@@ -132,5 +133,5 @@ class Converter(object):
                     error_xml.appendChild(error_text_xml)
 
             with open(os.path.join(out_dir, '%s.xml' % classname), 'w') as output:
-                doc_xml.writexml(output, encoding='utf-8', addindent='  ', newl="\n")
+                doc_xml.writexml(output, encoding='utf-8', addindent='', newl="")
             doc_xml.unlink()
