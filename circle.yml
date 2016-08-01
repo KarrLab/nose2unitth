@@ -108,6 +108,6 @@ test:
         lftp sftp://$CODE_SERVER_USER:$CODE_SERVER_PASSWORD@$CODE_SERVER_HOSTNAME \
           -e "
             mkdir -p $CODE_SERVER_BASE_DIR/$CIRCLE_PROJECT_REPONAME/docs;
-            mirror -R docs/build/html $CODE_SERVER_BASE_DIR/$CIRCLE_PROJECT_REPONAME/docs;
+            mirror -R docs/_build/html $CODE_SERVER_BASE_DIR/$CIRCLE_PROJECT_REPONAME/docs;
             bye;
           "
