@@ -41,7 +41,7 @@ test:
 
     # copy test history from lab server
     - |
-        lftp sftp://$CODE_SERVER_USER:$CODE_SERVER_PASSWORD@$CODE_SERVER_HOSTNAME \
+        lftp sftp://$CODE_SERVER_USERNAME:$CODE_SERVER_PASSWORD@$CODE_SERVER_HOSTNAME \
           -e "
             mkdir -p $CODE_SERVER_BASE_DIR/$CIRCLE_PROJECT_REPONAME/tests/nose;
             mirror $CODE_SERVER_BASE_DIR/$CIRCLE_PROJECT_REPONAME/tests/nose tests/reports/nose;
@@ -69,7 +69,7 @@ test:
 
     #copy test history to lab server
     - |
-        lftp sftp://$CODE_SERVER_USER:$CODE_SERVER_PASSWORD@$CODE_SERVER_HOSTNAME \
+        lftp sftp://$CODE_SERVER_USERNAME:$CODE_SERVER_PASSWORD@$CODE_SERVER_HOSTNAME \
           -e "            
             mkdir -p $CODE_SERVER_BASE_DIR/$CIRCLE_PROJECT_REPONAME/tests/nose;
             mkdir -p $CODE_SERVER_BASE_DIR/$CIRCLE_PROJECT_REPONAME/tests/unitth;
@@ -90,7 +90,7 @@ test:
     # post covergage report to lab server
     - coverage html -d tests/reports/coverage
     - |
-        lftp sftp://$CODE_SERVER_USER:$CODE_SERVER_PASSWORD@$CODE_SERVER_HOSTNAME \
+        lftp sftp://$CODE_SERVER_USERNAME:$CODE_SERVER_PASSWORD@$CODE_SERVER_HOSTNAME \
           -e "
             mkdir -p $CODE_SERVER_BASE_DIR/$CIRCLE_PROJECT_REPONAME/tests/coverage;
             mirror -R tests/reports/coverage $CODE_SERVER_BASE_DIR/$CIRCLE_PROJECT_REPONAME/tests/coverage;
@@ -105,7 +105,7 @@ test:
 
     # copy documentation to lab server
     - |
-        lftp sftp://$CODE_SERVER_USER:$CODE_SERVER_PASSWORD@$CODE_SERVER_HOSTNAME \
+        lftp sftp://$CODE_SERVER_USERNAME:$CODE_SERVER_PASSWORD@$CODE_SERVER_HOSTNAME \
           -e "
             mkdir -p $CODE_SERVER_BASE_DIR/$CIRCLE_PROJECT_REPONAME/docs;
             mirror -R docs/_build/html $CODE_SERVER_BASE_DIR/$CIRCLE_PROJECT_REPONAME/docs;
