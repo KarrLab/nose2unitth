@@ -30,7 +30,7 @@ test:
     - |
         nosetests tests \
           --with-xunit --xunit-file=$CIRCLE_TEST_REPORTS/nose.xml \
-          --with-coverage --cover-package=wc
+          --with-coverage --cover-package=nose2unitth
 
   post:
     ##### test reports
@@ -100,7 +100,7 @@ test:
     ##### documentation
     # generate documentation
     - mkdir -p docs/static
-    - sphinx-apidoc -f -o docs/source/ wc
+    - sphinx-apidoc -f -o docs/source/ nose2unitth
     - make -C docs/ html
 
     # copy documentation to lab server
