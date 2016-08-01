@@ -11,6 +11,8 @@ Convert [nose](http://nose.readthedocs.io)-style XML test reports to [UnitTH](ht
 pip install nose2unitth
 ```
 
+[![PyPI package](https://badge.fury.io/py/nose2unitth.svg)](https://pypi.python.org/pypi/nose2unitth)
+
 ## Usage
 ```
 # convert nose-style reports to UnitTH-style reports
@@ -34,6 +36,25 @@ java \
 
 ## Documentation
 Please see the documentation at [Read the Docs](http://nose2unitth.readthedocs.io).
+
+[![Documentation](https://readthedocs.org/projects/nose2unitth/badge/?version=latest)](http://nose2unitth.readthedocs.io)
+
+## Tests
+### Running the tests
+`nose` can be used to run the tests:
+```
+nosetests tests \
+  --with-xunit --xunit-file=test-report.xml \
+  --with-coverage --cover-package=nose2unitth
+```
+
+Please note that additional packages are required for testing (see [tests/requirements.txt] (tests/requirements.txt)).
+
+### Test report
+[![Test status](https://circleci.com/gh/KarrLab/nose2unitth.svg?style=shield)](https://circleci.com/gh/KarrLab/nose2unitth)
+
+### Coverage report
+[![Coverage Status](https://coveralls.io/repos/github/KarrLab/nose2unitth/badge.svg)](https://coveralls.io/github/KarrLab/nose2unitth)
 
 ## License
 The example model is released under the [MIT license](LICENSE.txt).
