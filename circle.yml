@@ -17,7 +17,6 @@ dependencies:
         mkdir -p ~/lib
         if [ ! -f ~/lib/unitth/unitth.jar ]
         then
-          mkdir -p ~/lib
           wget http://downloads.sourceforge.net/project/junitth/unitth/unitth-1.3.1/unitth_1_3_1.zip \
             -O ~/lib/unitth_1_3_1.zip
           unzip ~/lib/unitth_1_3_1.zip -d ~/lib
@@ -45,9 +44,9 @@ test:
 
     #copy test history from lab server
     - |
-        lftp sftp://karrlab_code:XMPJFSeG@code.karrlab.org \
+        lftp sftp://$CODE_SERVER_USER:$CODE_SERVER_PASSWORD@$CODE_SERVER_HOSTNAME \
           -e "
-            mirror /home/karrlab_code/code.karrlab.org/$CIRCLE_PROJECT_REPONAME/tests/nose tests/reports/nose;
+            mirror $CODE_SERVER_BASE_DIR/$CIRCLE_PROJECT_REPONAME/tests/nose tests/reports/nose;
             bye;
           "
 
@@ -72,11 +71,11 @@ test:
 
     #copy test history to lab server
     - |
-        lftp sftp://karrlab_code:XMPJFSeG@code.karrlab.org \
+        lftp sftp://$CODE_SERVER_USER:$CODE_SERVER_PASSWORD@$CODE_SERVER_HOSTNAME \
           -e "
-            put -O /home/karrlab_code/code.karrlab.org/$CIRCLE_PROJECT_REPONAME/tests/nose tests/reports/nose/$CIRCLE_BUILD_NUM.xml;
-            mirror -e -R tests/reports/unitth/$CIRCLE_BUILD_NUM /home/karrlab_code/code.karrlab.org/$CIRCLE_PROJECT_REPONAME/tests/unitth/$CIRCLE_BUILD_NUM; 
-            mirror -e -R tests/reports/html /home/karrlab_code/code.karrlab.org/$CIRCLE_PROJECT_REPONAME/tests/html;
+            put -O $CODE_SERVER_BASE_DIR/$CIRCLE_PROJECT_REPONAME/tests/nose tests/reports/nose/$CIRCLE_BUILD_NUM.xml;
+            mirror -e -R tests/reports/unitth/$CIRCLE_BUILD_NUM $CODE_SERVER_BASE_DIR/$CIRCLE_PROJECT_REPONAME/tests/unitth/$CIRCLE_BUILD_NUM; 
+            mirror -e -R tests/reports/html $CODE_SERVER_BASE_DIR/$CIRCLE_PROJECT_REPONAME/tests/html;
             bye;
           "
 
@@ -90,9 +89,9 @@ test:
     # post covergage report to lab server
     - coverage html -d tests/reports/coverage
     - |
-        lftp sftp://karrlab_code:XMPJFSeG@code.karrlab.org \
+        lftp sftp://$CODE_SERVER_USER:$CODE_SERVER_PASSWORD@$CODE_SERVER_HOSTNAME \
           -e "
-            mirror -R tests/reports/coverage /home/karrlab_code/code.karrlab.org/$CIRCLE_PROJECT_REPONAME/tests/coverage;
+            mirror -R tests/reports/coverage $CODE_SERVER_BASE_DIR/$CIRCLE_PROJECT_REPONAME/tests/coverage;
             bye;
           "
 
@@ -104,8 +103,8 @@ test:
 
     # copy documentation to lab server
     - |
-        lftp sftp://karrlab_code:XMPJFSeG@code.karrlab.org \
+        lftp sftp://$CODE_SERVER_USER:$CODE_SERVER_PASSWORD@$CODE_SERVER_HOSTNAME \
           -e "
-            mirror -R docs/build/html /home/karrlab_code/code.karrlab.org/$CIRCLE_PROJECT_REPONAME/docs;
+            mirror -R docs/build/html $CODE_SERVER_BASE_DIR/$CIRCLE_PROJECT_REPONAME/docs;
             bye;
           "
