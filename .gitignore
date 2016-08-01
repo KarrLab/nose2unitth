@@ -6,3 +6,9 @@ README.rst
 
 # generated documentation
 docs/_build
+
+# test reports
+tests/reports/*
+
+# coverage reports
+.coverage
