@@ -6,13 +6,10 @@ dependencies:
     - ~/lib
   pre:
     # requirements for package
-    - |
-        sudo apt-get install \
-          lftp \
-          libglpk-dev
     - pip install -r requirements.txt
 
     # requirements for testing and documentation
+    - sudo apt-get install lftp
     - |
         mkdir -p ~/lib
         if [ ! -f ~/lib/unitth/unitth.jar ]
@@ -42,10 +39,11 @@ test:
     - mkdir -p tests/reports/html
     - cp $CIRCLE_TEST_REPORTS/nose.xml tests/reports/nose/$CIRCLE_BUILD_NUM.xml
 
-    #copy test history from lab server
+    # copy test history from lab server
     - |
         lftp sftp://$CODE_SERVER_USER:$CODE_SERVER_PASSWORD@$CODE_SERVER_HOSTNAME \
           -e "
+            mkdir -p $CODE_SERVER_BASE_DIR/$CIRCLE_PROJECT_REPONAME/tests/nose;
             mirror $CODE_SERVER_BASE_DIR/$CIRCLE_PROJECT_REPONAME/tests/nose tests/reports/nose;
             bye;
           "
@@ -72,7 +70,10 @@ test:
     #copy test history to lab server
     - |
         lftp sftp://$CODE_SERVER_USER:$CODE_SERVER_PASSWORD@$CODE_SERVER_HOSTNAME \
-          -e "
+          -e "            
+            mkdir -p $CODE_SERVER_BASE_DIR/$CIRCLE_PROJECT_REPONAME/tests/nose;
+            mkdir -p $CODE_SERVER_BASE_DIR/$CIRCLE_PROJECT_REPONAME/tests/unitth;
+            mkdir -p $CODE_SERVER_BASE_DIR/$CIRCLE_PROJECT_REPONAME/tests/html;
             put -O $CODE_SERVER_BASE_DIR/$CIRCLE_PROJECT_REPONAME/tests/nose tests/reports/nose/$CIRCLE_BUILD_NUM.xml;
             mirror -e -R tests/reports/unitth/$CIRCLE_BUILD_NUM $CODE_SERVER_BASE_DIR/$CIRCLE_PROJECT_REPONAME/tests/unitth/$CIRCLE_BUILD_NUM; 
             mirror -e -R tests/reports/html $CODE_SERVER_BASE_DIR/$CIRCLE_PROJECT_REPONAME/tests/html;
@@ -91,6 +92,7 @@ test:
     - |
         lftp sftp://$CODE_SERVER_USER:$CODE_SERVER_PASSWORD@$CODE_SERVER_HOSTNAME \
           -e "
+            mkdir -p $CODE_SERVER_BASE_DIR/$CIRCLE_PROJECT_REPONAME/tests/coverage;
             mirror -R tests/reports/coverage $CODE_SERVER_BASE_DIR/$CIRCLE_PROJECT_REPONAME/tests/coverage;
             bye;
           "
@@ -105,6 +107,7 @@ test:
     - |
         lftp sftp://$CODE_SERVER_USER:$CODE_SERVER_PASSWORD@$CODE_SERVER_HOSTNAME \
           -e "
+            mkdir -p $CODE_SERVER_BASE_DIR/$CIRCLE_PROJECT_REPONAME/docs;
             mirror -R docs/build/html $CODE_SERVER_BASE_DIR/$CIRCLE_PROJECT_REPONAME/docs;
             bye;
           "
