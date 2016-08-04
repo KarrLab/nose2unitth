@@ -1,3 +1,9 @@
+[![PyPI package](https://img.shields.io/pypi/v/nose2unitth.svg)](https://pypi.python.org/pypi/nose2unitth)
+[![Documentation](https://readthedocs.org/projects/nose2unitth/badge/?version=latest)](http://nose2unitth.readthedocs.org)
+[![Test results](https://circleci.com/gh/KarrLab/nose2unitth.svg?style=shield)](https://circleci.com/gh/KarrLab/nose2unitth)
+[![Test coverage](https://coveralls.io/repos/github/KarrLab/nose2unitth/badge.svg)](https://coveralls.io/github/KarrLab/nose2unitth)
+[![License](https://img.shields.io/github/license/KarrLab/nose2unitth.svg)](LICENSE.txt)
+
 # nose2unitth
 Convert [nose](http://nose.readthedocs.io)-style XML test reports to [UnitTH](http://junitth.sourceforge.net/)-compatible XML reports
 
@@ -10,8 +16,6 @@ Convert [nose](http://nose.readthedocs.io)-style XML test reports to [UnitTH](ht
 ```
 pip install nose2unitth
 ```
-
-[![PyPI package](https://badge.fury.io/py/nose2unitth.svg)](https://pypi.python.org/pypi/nose2unitth)
 
 ## Usage
 ```
@@ -37,8 +41,6 @@ java \
 ## Documentation
 Please see the documentation at [Read the Docs](http://nose2unitth.readthedocs.io).
 
-[![Documentation](https://readthedocs.org/projects/nose2unitth/badge/?version=latest)](http://nose2unitth.readthedocs.io)
-
 ## Tests
 ### Running the tests
 `nose` can be used to run the tests:
@@ -49,12 +51,6 @@ nosetests tests \
 ```
 
 Please note that additional packages are required for testing (see [tests/requirements.txt] (tests/requirements.txt)).
-
-### Test report
-[![Test status](https://circleci.com/gh/KarrLab/nose2unitth.svg?style=shield)](https://circleci.com/gh/KarrLab/nose2unitth)
-
-### Coverage report
-[![Coverage Status](https://coveralls.io/repos/github/KarrLab/nose2unitth/badge.svg)](https://coveralls.io/github/KarrLab/nose2unitth)
 
 ## License
 The example model is released under the [MIT license](LICENSE.txt).

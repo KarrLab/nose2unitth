@@ -1,21 +1,10 @@
-from setuptools import setup, Command
+from setuptools import setup, find_packages
 import os
 
+version = '0.0.5'
 
-class CleanCommand(Command):
-    """Custom clean command to tidy up the project root."""
-    user_options = []
-
-    def initialize_options(self):
-        pass
-
-    def finalize_options(self):
-        pass
-
-    def run(self):
-        os.system('rm -vrf ./build ./dist ./*.pyc ./*.tgz ./*.egg-info')
-
-version = '0.0.4'
+# parse requirements.txt
+install_requires = [line.rstrip() for line in open('requirements.txt')]
 
 setup(
     name="nose2unitth",
@@ -27,21 +16,18 @@ setup(
     author_email="jonrkarr@gmail.com",
     license="MIT",
     keywords='nose unitth xunit junit',
-    packages=["nose2unitth"],
+    packages=find_packages(),
+    install_requires=install_requires,
     classifiers=[
         'Development Status :: 3 - Alpha',
         'Intended Audience :: Developers',
         'Topic :: Software Development :: Build Tools',
         'License :: OSI Approved :: MIT License',
-        'Programming Language :: Python :: 2',
-        'Programming Language :: Python :: 2.7',
+        'Programming Language :: Python',
     ],
     entry_points={
         'console_scripts': [
             'nose2unitth = nose2unitth.__main__:main',
         ],
-    },
-    cmdclass={
-        'clean': CleanCommand,
     },
 )
