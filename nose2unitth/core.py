@@ -40,7 +40,7 @@ class Converter(object):
         suite_xml = doc_xml.getElementsByTagName("testsuite")[0]
         for case_xml in suite_xml.getElementsByTagName('testcase'):
             classname = case_xml.getAttribute('classname')
-            if not suites.has_key(classname):
+            if classname not in suites:
                 suites[classname] = []
             case = {
                 'name': case_xml.getAttribute('name'),
@@ -86,15 +86,15 @@ class Converter(object):
         if not os.path.isdir(out_dir):
             os.mkdir(out_dir)
 
-        for classname, cases in suites.iteritems():
+        for classname, cases in suites.items():
             doc_xml = minidom.Document()
 
             suite_xml = doc_xml.createElement('testsuite')
             suite_xml.setAttribute('name', classname)
             suite_xml.setAttribute('tests', '%d' % len(cases))
-            suite_xml.setAttribute('errors', '%d' % sum(case.has_key('error') for case in cases))
-            suite_xml.setAttribute('failures', '%d' % sum(case.has_key('failure') for case in cases))
-            suite_xml.setAttribute('skipped', '%d' % sum(case.has_key('skipped') for case in cases))
+            suite_xml.setAttribute('errors', '%d' % sum('error' in case for case in cases))
+            suite_xml.setAttribute('failures', '%d' % sum('failure' in case for case in cases))
+            suite_xml.setAttribute('skipped', '%d' % sum('skipped' in case for case in cases))
             suite_xml.setAttribute('time', "%.3f" % sum(case['time'] for case in cases))
             doc_xml.appendChild(suite_xml)
 
@@ -105,7 +105,7 @@ class Converter(object):
                 case_xml.setAttribute('time', "%.3f" % case['time'])
                 suite_xml.appendChild(case_xml)
 
-                if case.has_key('skipped'):
+                if 'skipped' in case:
                     skipped_xml = doc_xml.createElement('skipped')
                     skipped_xml.setAttribute('type', case['skipped']['type'])
                     skipped_xml.setAttribute('message', case['skipped']['message'])
@@ -114,7 +114,7 @@ class Converter(object):
                     skipped_text_xml = doc_xml.createCDATASection(case['skipped']['text'])
                     skipped_xml.appendChild(skipped_text_xml)
 
-                if case.has_key('failure'):
+                if 'failure' in case:
                     failure_xml = doc_xml.createElement('failure')
                     failure_xml.setAttribute('type', case['failure']['type'])
                     failure_xml.setAttribute('message', case['failure']['message'])
@@ -123,7 +123,7 @@ class Converter(object):
                     failure_text_xml = doc_xml.createCDATASection(case['failure']['text'])
                     failure_xml.appendChild(failure_text_xml)
 
-                if case.has_key('error'):
+                if 'error' in case:
                     error_xml = doc_xml.createElement('error')
                     error_xml.setAttribute('type', case['error']['type'])
                     error_xml.setAttribute('message', case['error']['message'])
