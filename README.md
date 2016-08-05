@@ -2,7 +2,7 @@
 [![Documentation](https://readthedocs.org/projects/nose2unitth/badge/?version=latest)](http://nose2unitth.readthedocs.org)
 [![Test results](https://circleci.com/gh/KarrLab/nose2unitth.svg?style=shield)](https://circleci.com/gh/KarrLab/nose2unitth)
 [![Test coverage](https://coveralls.io/repos/github/KarrLab/nose2unitth/badge.svg)](https://coveralls.io/github/KarrLab/nose2unitth)
-[![License](https://img.shields.io/github/license/KarrLab/nose2unitth.svg)](LICENSE.txt)
+[![License](https://img.shields.io/github/license/KarrLab/nose2unitth.svg)](LICENSE)
 
 # nose2unitth
 Convert [nose](http://nose.readthedocs.io)-style XML test reports to [UnitTH](http://junitth.sourceforge.net/)-compatible XML reports
@@ -50,10 +50,10 @@ nosetests tests \
   --with-coverage --cover-package=nose2unitth
 ```
 
-Please note that additional packages are required for testing (see [tests/requirements.txt] (tests/requirements.txt)).
+Please note that additional packages are required for testing (see [tests/requirements.txt](tests/requirements.txt)).
 
 ## License
-The example model is released under the [MIT license](LICENSE.txt).
+The example model is released under the [MIT license](LICENSE).
 
 ## Development team
 `nose2unitth` was developed by [Jonathan Karr](http://www.karrlab.org) at the Icahn School of Medicine at Mount Sinai in New York, USA.
