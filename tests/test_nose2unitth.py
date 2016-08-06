@@ -90,5 +90,5 @@ class TestNose2UnitTH(unittest.TestCase):
         
         # XML files have tests
         for suite_name in NOSE_FIXTURE_OBJ:
-            with open(os.path.join(out_dir, '%s.xml' % suite_name), 'r') as report:
+            with open(os.path.join(out_dir, '{}.xml'.format(suite_name)), 'r') as report:
                 self.assertEqual(NOSE_FIXTURE_XML[suite_name], report.read())

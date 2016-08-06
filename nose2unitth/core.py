@@ -91,18 +91,18 @@ class Converter(object):
 
             suite_xml = doc_xml.createElement('testsuite')
             suite_xml.setAttribute('name', classname)
-            suite_xml.setAttribute('tests', '%d' % len(cases))
-            suite_xml.setAttribute('errors', '%d' % sum('error' in case for case in cases))
-            suite_xml.setAttribute('failures', '%d' % sum('failure' in case for case in cases))
-            suite_xml.setAttribute('skipped', '%d' % sum('skipped' in case for case in cases))
-            suite_xml.setAttribute('time', "%.3f" % sum(case['time'] for case in cases))
+            suite_xml.setAttribute('tests', str(len(cases)))
+            suite_xml.setAttribute('errors', str(sum('error' in case for case in cases)))
+            suite_xml.setAttribute('failures', str(sum('failure' in case for case in cases)))
+            suite_xml.setAttribute('skipped', str(sum('skipped' in case for case in cases)))
+            suite_xml.setAttribute('time', '{:.3f}'.format(sum(case['time'] for case in cases)))
             doc_xml.appendChild(suite_xml)
 
             for case in cases:
                 case_xml = doc_xml.createElement('testcase')
                 case_xml.setAttribute('classname', classname)
                 case_xml.setAttribute('name', case['name'])
-                case_xml.setAttribute('time', "%.3f" % case['time'])
+                case_xml.setAttribute('time', '{:.3f}'.format(case['time']))
                 suite_xml.appendChild(case_xml)
 
                 if 'skipped' in case:
@@ -132,6 +132,6 @@ class Converter(object):
                     error_text_xml = doc_xml.createCDATASection(case['error']['text'])
                     error_xml.appendChild(error_text_xml)
 
-            with open(os.path.join(out_dir, '%s.xml' % classname), 'w') as output:
+            with open(os.path.join(out_dir, '{}.xml'.format(classname)), 'w') as output:
                 doc_xml.writexml(output, encoding='utf-8', addindent='', newl="")
             doc_xml.unlink()

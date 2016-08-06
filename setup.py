@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 import os
 
-version = '0.0.7'
+version = '0.0.8'
 
 # parse requirements.txt
 install_requires = [line.rstrip() for line in open('requirements.txt')]
@@ -11,7 +11,7 @@ setup(
     version=version,
     description="Convert nose-style test reports to UnitTH-style test reports",
     url="https://github.com/KarrLab/nose2unitth",
-    download_url='https://github.com/KarrLab/nose2unitth/tarball/%s' % version,
+    download_url='https://github.com/KarrLab/nose2unitth/tarball/{}'.format(version),
     author="Jonathan Karr",
     author_email="jonrkarr@gmail.com",
     license="MIT",
