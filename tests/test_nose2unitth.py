@@ -7,6 +7,7 @@
 """
 
 from __future__ import unicode_literals
+from nose2unitth.__main__ import App as nose2unitth_cli
 from nose2unitth.core import Converter
 from xml.dom import minidom
 import os
@@ -84,6 +85,19 @@ class TestNose2UnitTH(unittest.TestCase):
     def test_write_unitth(self):
         out_dir = tempfile.mkdtemp()
         Converter.write_unitth(NOSE_FIXTURE_OBJ, out_dir)
+
+        # 1 XML file per suite
+        self.assertEqual(set(NOSE_FIXTURE_OBJ.keys()), set([x.replace('.xml', '') for x in os.listdir(out_dir)]))
+        
+        # XML files have tests
+        for suite_name in NOSE_FIXTURE_OBJ:
+            with open(os.path.join(out_dir, '{}.xml'.format(suite_name)), 'r') as report:
+                self.assertEqual(NOSE_FIXTURE_XML[suite_name], report.read())
+
+    def test_cli(self):
+        out_dir = tempfile.mkdtemp()
+        with nose2unitth_cli(argv=[NOSE_FIXTURE_FILE_NAME, out_dir]) as app:
+            app.run()
 
         # 1 XML file per suite
         self.assertEqual(set(NOSE_FIXTURE_OBJ.keys()), set([x.replace('.xml', '') for x in os.listdir(out_dir)]))
