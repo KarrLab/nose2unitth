@@ -16,4 +16,4 @@ docs/_build
 tests/reports/*
 
 # coverage reports
-.coverage
+.coverage*
