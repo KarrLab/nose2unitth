@@ -4,6 +4,7 @@ from nose2unitth.core import Converter
 
 
 class BaseController(CementBaseController):
+    """ Base controller for command line application """
 
     class Meta:
         label = 'base'
@@ -20,6 +21,7 @@ class BaseController(CementBaseController):
 
 
 class App(CementApp):
+    """ Command line application """
 
     class Meta:
         label = 'unitth'
