@@ -16,7 +16,7 @@ setup(
     author_email="jonrkarr@gmail.com",
     license="MIT",
     keywords='nose unitth xunit junit',
-    packages=find_packages(),
+    packages=find_packages(exclude=['tests', 'tests.*']),
     install_requires=install_requires,
     classifiers=[
         'Development Status :: 3 - Alpha',
