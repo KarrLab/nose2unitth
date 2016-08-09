@@ -4,6 +4,7 @@
 # compiled distributions
 build/
 dist/
+*.egg-info
 
 # rst-formatted README
 README.rst
