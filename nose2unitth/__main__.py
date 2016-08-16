@@ -1,3 +1,11 @@
+""" nose2unitth command line program
+
+:Author: Jonathan Karr <karr@mssm.edu>
+:Date: 2017-08-16
+:Copyright: 2016, Karr Lab
+:License: MIT
+"""
+
 from cement.core.foundation import CementApp
 from cement.core.controller import CementBaseController, expose
 from nose2unitth.core import Converter
@@ -24,7 +32,7 @@ class App(CementApp):
     """ Command line application """
 
     class Meta:
-        label = 'unitth'
+        label = 'nose2unitth'
         base_controller = 'base'
         handlers = [BaseController]
 

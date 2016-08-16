@@ -2,6 +2,7 @@
 [![Documentation](https://readthedocs.org/projects/nose2unitth/badge/?version=latest)](http://nose2unitth.readthedocs.org)
 [![Test results](https://circleci.com/gh/KarrLab/nose2unitth.svg?style=shield)](https://circleci.com/gh/KarrLab/nose2unitth)
 [![Test coverage](https://coveralls.io/repos/github/KarrLab/nose2unitth/badge.svg)](https://coveralls.io/github/KarrLab/nose2unitth)
+[![Code analysis](https://codeclimate.com/github/KarrLab/nose2unitth/badges/gpa.svg)](https://codeclimate.com/github/KarrLab/nose2unitth)
 [![License](https://img.shields.io/github/license/KarrLab/nose2unitth.svg)](LICENSE)
 
 # nose2unitth
