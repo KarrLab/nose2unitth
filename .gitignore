@@ -10,6 +10,7 @@ dist/
 README.rst
 
 # generated documentation
+docs/source
 docs/_build
 
 # test reports
