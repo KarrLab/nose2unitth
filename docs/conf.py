@@ -63,7 +63,7 @@ author = u'Jonathan Karr'
 # built documents.
 #
 # The short X.Y version.
-version = nose2unitth.__version__.encode('utf-8')
+version = nose2unitth.__version__
 # The full version, including alpha/beta/rc tags.
 release = version
 
