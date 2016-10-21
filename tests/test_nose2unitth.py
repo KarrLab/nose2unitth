@@ -47,6 +47,14 @@ NOSE_FIXTURE_OBJ = expected_report = {
         {"name": "test_pass3", "time": 0.001},
         {"name": "test_pass4", "time": 0.000},
     ],
+    "package5.Class5": [
+        {"name": "test_failure2", "time": 0.001, "failure": {
+            "type": "", 
+            "message": "True is not false",
+            "text": "Traceback ...\n",
+            }
+        },
+    ],
 }
 
 NOSE_FIXTURE_XML = {
@@ -72,6 +80,11 @@ NOSE_FIXTURE_XML = {
         + """<testsuite errors="0" failures="0" name="package4.Class4" skipped="0" tests="2" time="0.001">"""
         + """<testcase classname="package4.Class4" name="test_pass3" time="0.001"/>"""
         + """<testcase classname="package4.Class4" name="test_pass4" time="0.000"/>"""
+        + """</testsuite>""",
+    'package5.Class5': """"""
+        + """<?xml version="1.0" encoding="utf-8"?>"""
+        + """<testsuite errors="0" failures="1" name="package5.Class5" skipped="0" tests="1" time="0.001">"""
+        + """<testcase classname="package5.Class5" name="test_failure2" time="0.001"><failure message="True is not false" type=""><![CDATA[Traceback ...\n]]></failure></testcase>"""
         + """</testsuite>""",
 }
 

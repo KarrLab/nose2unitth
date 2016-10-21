@@ -49,24 +49,36 @@ class Converter(object):
             
             skipped_xml = case_xml.getElementsByTagName('skipped')
             if skipped_xml:
+                if skipped_xml[0].hasAttribute('type'):
+                    type = skipped_xml[0].getAttribute('type')
+                else:
+                    type = ''
                 case['skipped'] = {
-                    'type': skipped_xml[0].getAttribute('type'),
+                    'type': type,
                     'message': skipped_xml[0].getAttribute('message'),
                     'text': "".join([child.nodeValue for child in skipped_xml[0].childNodes]),
                 }
 
             failure_xml = case_xml.getElementsByTagName('failure')
             if failure_xml:
+                if failure_xml[0].hasAttribute('type'):
+                    type = failure_xml[0].getAttribute('type')
+                else:
+                    type = ''
                 case['failure'] = {
-                    'type': failure_xml[0].getAttribute('type'),
+                    'type': type,
                     'message': failure_xml[0].getAttribute('message'),
                     'text': "".join([child.nodeValue for child in failure_xml[0].childNodes]),
                 }
 
             error_xml = case_xml.getElementsByTagName('error')
             if error_xml:
+                if error_xml[0].hasAttribute('type'):
+                    type = error_xml[0].getAttribute('type')
+                else:
+                    type = ''
                 case['error'] = {
-                    'type': error_xml[0].getAttribute('type'),
+                    'type': type,
                     'message': error_xml[0].getAttribute('message'),
                     'text': "".join([child.nodeValue for child in error_xml[0].childNodes]),
                 }
