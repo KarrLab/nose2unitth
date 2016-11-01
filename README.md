@@ -4,6 +4,7 @@
 [![Test coverage](https://coveralls.io/repos/github/KarrLab/nose2unitth/badge.svg)](https://coveralls.io/github/KarrLab/nose2unitth)
 [![Code analysis](https://codeclimate.com/github/KarrLab/nose2unitth/badges/gpa.svg)](https://codeclimate.com/github/KarrLab/nose2unitth)
 [![License](https://img.shields.io/github/license/KarrLab/nose2unitth.svg)](LICENSE)
+![Analytics](https://ga-beacon.appspot.com/UA-86759801-1/nose2unitth/README.md?pixel)
 
 # nose2unitth
 Convert [nose](http://nose.readthedocs.io)-style XML test reports to [UnitTH](http://junitth.sourceforge.net/)-compatible XML reports
