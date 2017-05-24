@@ -1,23 +1,16 @@
-.. nose2unitth documentation master file, created by
-   sphinx-quickstart on Thu Jul 28 18:35:05 2016.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
+`nose2unitth` documentation
+===========================
 
-Welcome to nose2unitth's documentation!
-=======================================
+Convert `nose <http://nose.readthedocs.io/>`_-style XML test reports to `UnitTH <http://junitth.sourceforge.net/>`_-compatible XML reports
 
-Contents:
+
+Contents
+--------
 
 .. toctree::
-   :maxdepth: 2
-   
-   source/modules.rst
+   :maxdepth: 3
 
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
-
+   installation.rst
+   overview.rst
+   API documentation <source/modules.rst>
+   about.rst
