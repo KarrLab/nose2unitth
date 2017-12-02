@@ -18,3 +18,6 @@ tests/reports/*
 
 # coverage reports
 .coverage*
+
+# cache
+.cache/
