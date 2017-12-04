@@ -1,41 +1,40 @@
-from setuptools import setup, find_packages
+import setuptools
+try:
+    import pkg_utils
+except ImportError:
+    import pip
+    pip.main(['install', 'git+https://github.com/KarrLab/pkg_utils.git#egg=pkg_utils'])
+    import pkg_utils
 import os
 
-# get long description
-if os.path.isfile('README.rst'):
-    with open('README.rst', 'r') as file:
-        long_description = file.read()
-else:
-    long_description = ''
+name = 'nose2unitth'
+dirname = os.path.dirname(__file__)
 
-# get version
-with open('nose2unitth/VERSION', 'r') as file:
-    version = file.read().strip()
-
-# parse dependencies and their links from requirements.txt files
-install_requires = [line.rstrip() for line in open('requirements.txt')]
-tests_require = [line.rstrip() for line in open('tests/requirements.txt')]
+# get package metadata
+md = pkg_utils.get_package_metadata(dirname, name)
 
 # install package
-setup(
-    name="nose2unitth",
-    version=version,
+setuptools.setup(
+    name=name,
+    version=md.version,
     description="Convert nose-style test reports to UnitTH-style test reports",
-    long_description=long_description,
-    url="https://github.com/KarrLab/nose2unitth",
-    download_url='https://github.com/KarrLab/nose2unitth',
+    long_description=md.long_description,
+    url="https://github.com/KarrLab/" + name,
+    download_url='https://github.com/KarrLab/' + name,
     author="Jonathan Karr",
     author_email="jonrkarr@gmail.com",
     license="MIT",
     keywords='nose unitth xunit junit',
-    packages=find_packages(exclude=['tests', 'tests.*']),
+    packages=setuptools.find_packages(exclude=['tests', 'tests.*']),
     package_data={
-        'nose2unitth': [
+        name: [
             'VERSION',
         ],
     },
-    install_requires=install_requires,
-    tests_require=tests_require,
+    install_requires=md.install_requires,
+    extras_require=md.extras_require,
+    tests_require=md.tests_require,
+    dependency_links=md.dependency_links,
     classifiers=[
         'Development Status :: 3 - Alpha',
         'Intended Audience :: Developers',
