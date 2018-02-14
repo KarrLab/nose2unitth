@@ -1,1 +1,4 @@
-- unitth
+downstream_dependencies:
+  - unitth
+email_notifications:
+  - jonrkarr@gmail.com
