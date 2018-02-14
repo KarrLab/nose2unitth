@@ -21,3 +21,4 @@ tests/reports/*
 
 # cache
 .cache/
+.pytest_cache/
