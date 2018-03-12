@@ -125,7 +125,7 @@ class TestNose2UnitTH(unittest.TestCase):
     def test_write_unitth(self):
         out_dir = tempfile.mkdtemp()
         shutil.rmtree(out_dir)
-        
+
         Converter.write_unitth(NOSE_FIXTURE_OBJ, out_dir)
 
         # 1 XML file per suite
@@ -160,3 +160,6 @@ class TestNose2UnitTH(unittest.TestCase):
             with self.assertRaises(SystemExit) as context:
                 nose2unitth.__main__.main()
                 self.assertRegexpMatches(context.Exception, 'usage: nose2unitth')
+
+    def test_api(self):
+        self.assertIsInstance(nose2unitth.Converter, type)
