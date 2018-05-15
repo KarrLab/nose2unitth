@@ -1,5 +1,5 @@
 [![PyPI package](https://img.shields.io/pypi/v/nose2unitth.svg)](https://pypi.python.org/pypi/nose2unitth)
-[![Documentation](https://img.shields.io/badge/docs-latest-green.svg)](http://docs.karrlab.org/nose2unitth)
+[![Documentation](https://readthedocs.org/projects/nose2unitth/badge/?version=latest)](http://docs.karrlab.org/nose2unitth)
 [![Test results](https://circleci.com/gh/KarrLab/nose2unitth.svg?style=shield)](https://circleci.com/gh/KarrLab/nose2unitth)
 [![Test coverage](https://coveralls.io/repos/github/KarrLab/nose2unitth/badge.svg)](https://coveralls.io/github/KarrLab/nose2unitth)
 [![Code analysis](https://api.codeclimate.com/v1/badges/e3ee777af72076166232/maintainability)](https://codeclimate.com/github/KarrLab/nose2unitth)
