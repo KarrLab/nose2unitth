@@ -9,6 +9,7 @@
 from cement.core.foundation import CementApp
 from cement.core.controller import CementBaseController, expose
 from nose2unitth.core import Converter
+import nose2unitth
 
 
 class BaseController(CementBaseController):
@@ -18,6 +19,7 @@ class BaseController(CementBaseController):
         label = 'base'
         description = "Convert nose-style test reports into UnitTH-style test reports"
         arguments = [
+            (['-v', '--version'], dict(action='version', version=nose2unitth.__version__)),
             (['in_file_nose'], dict(type=str, help='path to nose test report that should be converted')),
             (['out_dir_unitth'], dict(type=str, help='path where converted test report should be saved')),
         ]
