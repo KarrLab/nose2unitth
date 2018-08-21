@@ -6,13 +6,12 @@
 :License: MIT
 """
 
-from cement.core.foundation import CementApp
-from cement.core.controller import CementBaseController, expose
 from nose2unitth.core import Converter
+import cement
 import nose2unitth
 
 
-class BaseController(CementBaseController):
+class BaseController(cement.Controller):
     """ Base controller for command line application """
 
     class Meta:
@@ -24,13 +23,13 @@ class BaseController(CementBaseController):
             (['out_dir_unitth'], dict(type=str, help='path where converted test report should be saved')),
         ]
 
-    @expose(hide=True)
-    def default(self):
+    @cement.ex(hide=True)
+    def _default(self):
         args = self.app.pargs
         Converter.run(args.in_file_nose, args.out_dir_unitth)
 
 
-class App(CementApp):
+class App(cement.App):
     """ Command line application """
 
     class Meta:
