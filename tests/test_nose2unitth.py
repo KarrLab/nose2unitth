@@ -159,7 +159,7 @@ class TestNose2UnitTH(unittest.TestCase):
         with mock.patch('sys.argv', ['nose2unitth', '--help']):
             with self.assertRaises(SystemExit) as context:
                 nose2unitth.__main__.main()
-                self.assertRegexpMatches(context.Exception, 'usage: nose2unitth')
+                self.assertRegex(context.Exception, 'usage: nose2unitth')
 
     def test_api(self):
         self.assertIsInstance(nose2unitth.Converter, type)
