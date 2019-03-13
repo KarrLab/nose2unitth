@@ -15,9 +15,15 @@ Convert [nose](http://nose.readthedocs.io)-style XML test reports to [UnitTH](ht
 * [UnitTH HTML test history report](https://cdn.rawgit.com/KarrLab/nose2unitth/master/examples/html/index.html)
 
 ## Installation
-```
-pip install nose2unitth
-```
+* Latest release from PyPI
+  ```
+  pip install nose2unitth
+  ```
+
+* Latest revision from GitHub
+  ```
+  pip install git+https://github.com/KarrLab/nose2unitth.git#egg=nose2unitth
+  ```
 
 ## Usage
 ```
