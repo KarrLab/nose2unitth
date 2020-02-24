@@ -1,9 +1,6 @@
 # description
 include README.rst
 
-# version
-include nose2unitth/VERSION
-
 # license
 include LICENSE
 
