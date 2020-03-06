@@ -6,7 +6,6 @@
 :License: MIT
 """
 
-from __future__ import unicode_literals
 from xml.dom import minidom
 import os
 

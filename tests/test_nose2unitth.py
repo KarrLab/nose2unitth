@@ -6,7 +6,6 @@
 :License: MIT
 """
 
-from __future__ import unicode_literals
 from nose2unitth.__main__ import App as nose2unitth_cli
 from nose2unitth.core import Converter
 from xml.dom import minidom
